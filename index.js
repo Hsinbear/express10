@@ -3,14 +3,10 @@
 // const __dirname = import.meta.dirname;
 
 const express = require("express");
-const path = require("path");
-const { dirname } = require("path");
-const { fileURLToPath } = require("url");
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const { resolve } = require("path");
 
 const app = express();
+
 app.use(express.static(resolve(__dirname, "public")));
 app.use("/bootstrap", express.static(resolve(__dirname, "node_modules/bootstrap/dist")));
 app.use("/jquery", express.static(resolve(__dirname, "node_modules/jquery/dist")))
